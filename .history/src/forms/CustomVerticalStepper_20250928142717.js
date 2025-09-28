@@ -279,7 +279,6 @@ export default function CustomVerticalStepper() {
     } else if (activeStep === 1) {
       const preferencesValid = validatePreferences();
       if (!preferencesValid) return false;
-    
     // } else if (activeStep === 2) {
     //   if (!transactionId) {
     //     alert("Transaction ID is required.");

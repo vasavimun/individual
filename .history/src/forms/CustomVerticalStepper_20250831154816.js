@@ -279,18 +279,17 @@ export default function CustomVerticalStepper() {
     } else if (activeStep === 1) {
       const preferencesValid = validatePreferences();
       if (!preferencesValid) return false;
-    
-    // } else if (activeStep === 2) {
-    //   if (!transactionId) {
-    //     alert("Transaction ID is required.");
-    //     return false;
-    //   }
-    //   if (!driveLink) {
-    //     alert("Drive link is required.");
-    //     return false;
-    //   }
-    //   const driveUrlPattern =
-    //     /https:\/\/drive\.google\.com\/(?:file\/d\/|drive\/folders\/)([-\w]+)/;
+    } else if (activeStep === 2) {
+      if (!transactionId) {
+        alert("Transaction ID is required.");
+        return false;
+      }
+      if (!driveLink) {
+        alert("Drive link is required.");
+        return false;
+      }
+      const driveUrlPattern =
+        /https:\/\/drive\.google\.com\/(?:file\/d\/|drive\/folders\/)([-\w]+)/;
 
       
       // const utrvadilation = /^(?:\d{12})?$/;
