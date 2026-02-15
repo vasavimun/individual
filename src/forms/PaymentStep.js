@@ -34,7 +34,7 @@ export default function PaymentStep({
 
     <p>
       Thank you for your interest in our{" "}
-      <strong>Dynamic Round registrations</strong>. We will receive your
+      <strong>Priority Round registrations</strong>. We will receive your
       registration after submission, and our team will reach out to you within
       approximately two to three business days. We kindly request your patience
       during this period.
