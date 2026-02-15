@@ -32,7 +32,6 @@ export default function PaymentStep({
       <div style={{ fontFamily: "Arial, sans-serif", lineHeight: "1.6", backgroundColor: "#000", color: "#fff", padding: "20px" }}>
         <h1>Dear Delegate,</h1>
 
-<<<<<<< HEAD
         <p>
           Thank you for your interest in our{" "}
           <strong>Dynamic Round registrations</strong>. We will receive your
@@ -40,15 +39,6 @@ export default function PaymentStep({
           approximately two to three business days. We kindly request your patience
           during this period.
         </p>
-=======
-    <p>
-      Thank you for your interest in our{" "}
-      <strong>Priority Round registrations</strong>. We will receive your
-      registration after submission, and our team will reach out to you within
-      approximately two to three business days. We kindly request your patience
-      during this period.
-    </p>
->>>>>>> c073195576c9688fa97044bf37d49c9df0235295
 
         <p>
           Thank you. We appreciate your understanding and look forward to

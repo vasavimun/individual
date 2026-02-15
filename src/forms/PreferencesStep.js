@@ -1,10 +1,6 @@
 import React from "react";
 import { FaBookOpen } from "react-icons/fa";
-<<<<<<< HEAD
 const committees = ["UNGA-DISEC", "AIPPM", "UNHRC", "NATO", "IP"];
-=======
-const committees = ["DISEC", "AIPPM", "UNHRC","NATO",  "IP"];
->>>>>>> c073195576c9688fa97044bf37d49c9df0235295
 const ipRoles = [
   "Photographer",
   "Reporter - UNGA-DISEC",
