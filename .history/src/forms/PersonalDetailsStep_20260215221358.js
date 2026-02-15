@@ -31,8 +31,6 @@ export default function PersonalDetailsStep({
   setMunExperienceDetails,
   instituteName,
   setInstituteName,
-  recipient,
-  upiData,
   setUpiData,
   setRecipient,
   
@@ -57,7 +55,6 @@ export default function PersonalDetailsStep({
     };
   
     fetchUpiData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Dependency array remains empty
   
   return (

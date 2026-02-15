@@ -57,7 +57,6 @@ export default function PersonalDetailsStep({
     };
   
     fetchUpiData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // Dependency array remains empty
   
   return (
