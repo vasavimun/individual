@@ -13,6 +13,7 @@ export default function PaymentStep({
   utrNumber,
   setUtrNumber,
   upiData,
+  
 }) {
 
 
