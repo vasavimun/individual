@@ -65,6 +65,27 @@ const copyToClipboard = (text) => {
         </p>
       </div>
 
+      {/* Dropdown for recipient */}
+      {/* <div style={{ marginTop: "20px" }}>
+        <label htmlFor="recipient" style={{ color: "#fff", fontSize: "1rem" }}>
+          To Whom You Are Paying:
+        </label>
+        <select
+          id="recipient"
+          value={recipient}
+          onChange={(e) => setRecipient(e.target.value)}
+          style={{
+            padding: "8px",
+            fontSize: "1rem",
+            borderRadius: "4px",
+            marginLeft: "10px",
+          }}
+        >
+          <option value="Ananya">Ananya</option>
+          <option value="Mansi">Mansi</option>
+          <option value="Other">Other</option>
+        </select>
+      </div> */}
 
       {/* UTR Number Input */}
       <div style={{ marginTop: "20px" }}>
