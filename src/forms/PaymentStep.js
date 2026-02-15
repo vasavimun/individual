@@ -15,7 +15,7 @@ export default function PaymentStep({
 }) {
   // const upiID = isVasavi ? "saiananyat-1@okhdfcbank" : "8309502651@ibl";
   const paymentLink = isVasavi
-    ? "https://example.com/pay/1000"
+    ? "https://example.com/pay/900"
     : "https://example.com/pay/1400";
 
   // const QR = isVasavi ? qrCode1 : qrCode2;
@@ -32,18 +32,18 @@ export default function PaymentStep({
       <div style={{ fontFamily: "Arial, sans-serif", lineHeight: "1.6", backgroundColor: "#000", color: "#fff", padding: "20px" }}>
         <h1>Dear Delegate,</h1>
 
-    <p>
-      Thank you for your interest in our{" "}
-      <strong>Dynamic Round registrations</strong>. We will receive your
-      registration after submission, and our team will reach out to you within
-      approximately two to three business days. We kindly request your patience
-      during this period.
-    </p>
+        <p>
+          Thank you for your interest in our{" "}
+          <strong>Dynamic Round registrations</strong>. We will receive your
+          registration after submission, and our team will reach out to you within
+          approximately two to three business days. We kindly request your patience
+          during this period.
+        </p>
 
-    <p>
-      Thank you. We appreciate your understanding and look forward to
-      connecting with you soon.
-    </p>
+        <p>
+          Thank you. We appreciate your understanding and look forward to
+          connecting with you soon.
+        </p>
 
         <p>
           Best regards, <br />
