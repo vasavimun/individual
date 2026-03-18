@@ -36,6 +36,7 @@ export default function CustomVerticalStepper() {
   const [recipient , setRecipient] = useState("");
   const [utrNumber,setUtrNumber] = useState("");
   const [upiData, setUpiData] = useState("");
+  const [submitted, setSubmitted] = useState(false);
   // labBatch,
   // setLabBatch,
   // eca,
@@ -370,7 +371,9 @@ export default function CustomVerticalStepper() {
         .then((response) => response.json())
         .then((data) => {
           console.log("Success:", data);
+          setSubmitted(true);
           alert("Form submitted successfully!");
+          
           resetForm();
           setLoading(false);
         })
@@ -415,13 +418,22 @@ export default function CustomVerticalStepper() {
 
   return (
     <div className="stepper-wrapper">
-      {loading ? (
-        <>
-          <div className="loader-container">
-            <div className="pulsing-circle"></div>
-            <p>Submitting Response</p>
-          </div>
-        </>
+      {submitted ? (
+      <div className="success-container">
+        <p>
+          Thank you for registering for Vasavi MUN Season 6.
+        </p>
+        <p>
+          Our team will get in touch with you soon regarding the allocation and the payment process.
+        </p>
+      </div>
+      ) : loading ? (
+      <>
+        <div className="loader-container">
+          <div className="pulsing-circle"></div>
+          <p>Submitting Response</p>
+        </div>
+      </>
       ) : (
         <div className="stepper-container">
           <div className="stepper-header">

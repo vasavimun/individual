@@ -5,15 +5,33 @@
   min-height: 100vh;
   background-color: #000000;
   padding: 20px;
-  background-image: linear-gradient(
-      rgba(12, 12, 12, 0.841),
-      rgba(16, 16, 16, 0.834)
-    ),
+  background-image: linear-gradient(rgba(12, 12, 12, 0.841),
+      rgba(16, 16, 16, 0.834)),
     url("reg_back.webp");
   background-size: cover;
   background-repeat: no-repeat;
   margin: 0;
 }
+
+.success-container {
+  text-align: center;
+  padding: 50px 20px;
+  color: white;
+  max-width: 600px;
+  margin: auto;
+}
+
+.success-container h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.success-container p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
 .stepper-container {
   background: #e1e1e13c;
   border-radius: 15px;
@@ -27,6 +45,37 @@
 
 .stepper-header {
   margin-bottom: 20px;
+}
+
+.success-container {
+  margin: 60px auto;
+  padding: 40px 30px;
+  max-width: 600px;
+  border-radius: 16px;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  text-align: center;
+  color: #fff;
+
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+
+.success-container h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.success-container p {
+  font-size: 1rem;
+  line-height: 1.6;
+  opacity: 0.9;
 }
 
 .step-header {
@@ -46,6 +95,7 @@
   justify-content: space-between;
   margin-top: 20px;
 }
+
 h4,
 h3,
 h2 {
@@ -53,6 +103,7 @@ h2 {
   color: white;
   padding: 0;
 }
+
 h4 {
   margin-bottom: 0;
 }
@@ -77,6 +128,7 @@ h4 {
 .btn:hover {
   background-color: #1d1d1d;
 }
+
 .reset-container {
   text-align: center;
 }
@@ -105,27 +157,29 @@ h4 {
 }
 
 @keyframes pulse {
+
   0%,
   100% {
     transform: scale(1);
     opacity: 1;
   }
+
   50% {
     transform: scale(1.5);
     opacity: 0.5;
   }
 }
+
 @media (max-width: 768px) {
   .stepper-wrapper {
-    background-image: linear-gradient(
-        rgba(12, 12, 12, 0.758),
-        rgba(16, 16, 16, 0.77)
-      ),
+    background-image: linear-gradient(rgba(12, 12, 12, 0.758),
+        rgba(16, 16, 16, 0.77)),
       url("regback.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
   }
+
   .stepper-container {
     padding: 20px;
     max-width: 90%;
