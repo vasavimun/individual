@@ -14,30 +14,23 @@ export default function PaymentStep({
   setUtrNumber,
   upiData,
 }) {
- 
-  
-  
-  //const upiID = isVasavi ? "saiananyat-1@okhdfcbank" : "8309502651@ibl";
-  const paymentLink = isVasavi
-    ? "https://example.com/pay/1000"
-    : "https://example.com/pay/1400";
 
-  //const QR = isVasavi ? qrCode1 : qrCode2;
-  const no = isVasavi ? "8897327157" : "8125192190";
-  
 
-  const copyToClipboard = (text) => {
+
+const no = isVasavi ? "8897327157" : "8125192190";
+
+const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text).then(() => {
       alert("UPI ID copied to clipboard!");
     });
   };
 
+  
+
   return (
-    /*<div>
+    <div>
       <h2>
-        {isVasavi
-          ? "Pay the registration fee of ₹1000"
-          : "Pay the registration fee of ₹1400"}
+        Pay the registration fee of ₹1700
       </h2>
       <div className="hd">
         <label className="btn">
@@ -67,32 +60,10 @@ export default function PaymentStep({
           Ensure access is not restricted
         </p>
       </div>
-       */ }
 
-      
-      {/* <div style={{ marginTop: "20px" }}>
-        <label htmlFor="recipient" style={{ color: "#fff", fontSize: "1rem" }}>
-          To Whom You Are Paying:
-        </label>
-        <select
-          id="recipient"
-          value={recipient}
-          onChange={(e) => setRecipient(e.target.value)}
-          style={{
-            padding: "8px",
-            fontSize: "1rem",
-            borderRadius: "4px",
-            marginLeft: "10px",
-          }}
-        >
-          <option value="Ananya">Ananya</option>
-          <option value="Mansi">Mansi</option>
-          <option value="Other">Other</option>
-        </select>
-      </div> */}
 
       {/* UTR Number Input */}
-      {/*<div style={{ marginTop: "20px" }}>
+      <div style={{ marginTop: "20px" }}>
         <input
           type="text"
           id="utr-number"
@@ -115,7 +86,6 @@ export default function PaymentStep({
         }}
         >leave empty if not available or invalid</p>
       </div>
-      */}
 
       <div
         style={{
@@ -198,3 +168,4 @@ export default function PaymentStep({
     </div>
   );
 }
+// dep issue clear
