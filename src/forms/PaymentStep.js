@@ -30,9 +30,13 @@ const copyToClipboard = (text) => {
   return (
     <div>
       <h2>
-        Pay the registration fee of ₹1700
+        Registration fee: Rs. 1,700
       </h2>
-      <div className="hd">
+
+
+
+
+      {/* <div className="hd">
         <label className="btn">
             <h3>Payment</h3>
         </label>
@@ -62,7 +66,7 @@ const copyToClipboard = (text) => {
       </div>
 
 
-      {/* UTR Number Input */}
+
       <div style={{ marginTop: "20px" }}>
         <input
           type="text"
@@ -136,7 +140,7 @@ const copyToClipboard = (text) => {
         >
           For payment issues, contact: {no}
         </h5>
-      </div>
+      </div> */}
 
       {/* <div
         style={{
@@ -165,6 +169,56 @@ const copyToClipboard = (text) => {
           />
         </div>
       </div> */}
+
+
+      {/*UNCOMMENT THE BELOW CODE DURING DYNAMIC ROUND*/}
+
+      <div
+        style={{
+          marginTop: "30px",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            maxWidth: "900px",
+            width: "100%",
+            padding: "20px 20px",
+            borderRadius: "16px",
+            background: "linear-gradient(135deg, #1e1e2f, #2a2a40)",
+            color: "#fff",
+            boxShadow: "0 10px 25px rgba(0,0,0,0.3)",
+            textAlign: "center",
+            fontFamily: "'Poppins', sans-serif",
+            lineHeight: "1.6",
+          }}
+        >
+          <h2
+            style={{
+              marginBottom: "10px",
+              fontSize: "1.8rem",
+              fontWeight: "900",
+              letterSpacing: "1px",
+            }}
+          >
+          </h2>
+
+          <p
+            style={{
+              fontSize: "1.05rem",
+              color: "#dcdcdc",
+            }}
+          >
+            Thank you for registering for <strong>Vasavi MUN Season 6</strong>.
+            <br />
+            Our team will get in touch with you soon regarding the allocation and the
+            payment process.
+          </p>
+        </div>
+      </div>
+      {/* TILL HERE*/}
+      
     </div>
   );
 }

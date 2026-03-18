@@ -418,16 +418,18 @@ export default function CustomVerticalStepper() {
 
   return (
     <div className="stepper-wrapper">
-      {submitted ? (
-      <div className="success-container">
-        <p>
-          Thank you for registering for Vasavi MUN Season 6.
-        </p>
-        <p>
-          Our team will get in touch with you soon regarding the allocation and the payment process.
-        </p>
-      </div>
-      ) : loading ? (
+      {
+      //   submitted ? (
+      // <div className="success-container">
+      //   <p>
+      //     Thank you for registering for Vasavi MUN Season 6.
+      //   </p>
+      //   <p>
+      //     Our team will get in touch with you soon regarding the allocation and the payment process.
+      //   </p>
+      // </div>
+      // ) :
+      loading ? (
       <>
         <div className="loader-container">
           <div className="pulsing-circle"></div>
