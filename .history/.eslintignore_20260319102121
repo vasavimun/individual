@@ -1,0 +1,9 @@
+src/**/*.css
+src/**/*.png
+src/**/*.jpg
+src/**/*.jpeg
+src/**/*.webp
+src/**/*.svg
+src/forms/*.png
+src/forms/*.jpeg
+src/forms/*.webp
