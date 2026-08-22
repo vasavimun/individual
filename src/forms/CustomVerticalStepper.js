@@ -33,14 +33,8 @@ export default function CustomVerticalStepper() {
   const [driveLink, setDriveLink] = useState("");
   const [instituteName, setInstituteName] = useState("");
   const [munExperienceDetails, setMunExperienceDetails] = useState("");
-  const [recipient , setRecipient] = useState("");
-  const [utrNumber,setUtrNumber] = useState("");
-  const [upiData, setUpiData] = useState("");
-  
-  // labBatch,
-  // setLabBatch,
-  // eca,
-  // setEca,
+  const [utrNumber, setUtrNumber] = useState("");
+
   const [labBatch, setLabBatch] = useState("");
   const [eca, setEca] = useState("");
 
@@ -147,10 +141,6 @@ export default function CustomVerticalStepper() {
           setInstituteName={setInstituteName}
           munExperienceDetails={munExperienceDetails}
           setMunExperienceDetails={setMunExperienceDetails}
-          upiData={upiData}
-          setUpiData={setUpiData}
-          recipient={recipient}
-          setRecipient={setRecipient}
         />
       ),
     },
@@ -194,12 +184,11 @@ export default function CustomVerticalStepper() {
           setDriveLink={setDriveLink}
           utrNumber={utrNumber}
           setUtrNumber={setUtrNumber}
-          upiData={upiData}
         />
       ),
     },
   ];
-  
+
   const validateStep = () => {
     if (activeStep === 0) {
       const phoneRegex = /^[0-9]{10}$/;
@@ -246,8 +235,6 @@ export default function CustomVerticalStepper() {
         alert("Please fill in your address.");
         return false;
       }
-      if (!instituteName) {
-      }
 
       if (isVasavi) {
         if (!rollNumber) {
@@ -280,25 +267,6 @@ export default function CustomVerticalStepper() {
     } else if (activeStep === 1) {
       const preferencesValid = validatePreferences();
       if (!preferencesValid) return false;
-    
-    // } else if (activeStep === 2) {
-    //   if (!transactionId) {
-    //     alert("Transaction ID is required.");
-    //     return false;
-    //   }
-    //   if (!driveLink) {
-    //     alert("Drive link is required.");
-    //     return false;
-    //   }
-    //   const driveUrlPattern =
-    //     /https:\/\/drive\.google\.com\/(?:file\/d\/|drive\/folders\/)([-\w]+)/;
-
-      
-      // const utrvadilation = /^(?:\d{12})?$/;
-      // if(!utrvadilation.test(utrNumber)){
-      //   alert("Please enter a valid UTR number");
-      //   return false;
-      // }
     }
 
     return true;
@@ -339,6 +307,8 @@ export default function CustomVerticalStepper() {
         year,
         branch,
         section,
+        labBatch,
+        eca,
         preference1,
         preference2,
         preference3,
@@ -353,15 +323,13 @@ export default function CustomVerticalStepper() {
         ipRole3,
         transactionId,
         driveLink,
-        utrNumber,        
-        recipient,  
-        upiData,
-      
+        utrNumber,
+        isVasavi
       };
 
       console.log("Submitting form data:", formData);
 
-      fetch("https://mun-dat.onrender.com/register", {
+      fetch("https://mun-dat-gilt.vercel.app/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -396,6 +364,8 @@ export default function CustomVerticalStepper() {
     setYear("");
     setBranch("");
     setSection("");
+    setLabBatch("");
+    setEca("");
     setPreference1("");
     setPreference2("");
     setPreference3("");
@@ -412,29 +382,17 @@ export default function CustomVerticalStepper() {
     setDriveLink("");
     setActiveStep(0);
     setUtrNumber("");
-    setRecipient("");
   };
 
   return (
     <div className="stepper-wrapper">
-      {
-      //   submitted ? (
-      // <div className="success-container">
-      //   <p>
-      //     Thank you for registering for Vasavi MUN Season 6.
-      //   </p>
-      //   <p>
-      //     Our team will get in touch with you soon regarding the allocation and the payment process.
-      //   </p>
-      // </div>
-      // ) :
-      loading ? (
-      <>
-        <div className="loader-container">
-          <div className="pulsing-circle"></div>
-          <p>Submitting Response</p>
-        </div>
-      </>
+      {loading ? (
+        <>
+          <div className="loader-container">
+            <div className="pulsing-circle"></div>
+            <p>Submitting Response</p>
+          </div>
+        </>
       ) : (
         <div className="stepper-container">
           <div className="stepper-header">

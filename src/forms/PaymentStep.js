@@ -1,7 +1,9 @@
 import React from "react";
+import { FaRegCopy } from "react-icons/fa";
 
-//import qrCode1 from "./AnanyaQR.png";
+// import qrCode1 from "./AnanyaQR.png";
 //import qrCode2 from "./MansiQR.png";
+
 
 export default function PaymentStep({
   isVasavi,
@@ -11,14 +13,15 @@ export default function PaymentStep({
   setDriveLink,
   utrNumber,
   setUtrNumber,
-  upiData,
+  // upiData,
 }) {
 
-
-
- 
-
-  
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("UPI ID copied to clipboard!");
+    });
+  };
+  const no = isVasavi ? "8897327157" : "8125192190";
 
   return (
     <div>
@@ -26,10 +29,7 @@ export default function PaymentStep({
         Registration fee: Rs. 1,700
       </h2>
 
-
-
-
-      {/* <div className="hd">
+      <div className="hd">
         <label className="btn">
             <h3>Payment</h3>
         </label>
@@ -93,13 +93,13 @@ export default function PaymentStep({
           flexDirection: "column",
         }}
       >
-        <div
+        {/* <div
           style={{
             display: "flex",
             alignItems: "center",
           }}
-        >
-          <p
+        > */}
+          {/* <p
             style={{
               padding: "8px",
               borderRadius: "8px",
@@ -115,14 +115,17 @@ export default function PaymentStep({
           {upiData ? upiData : "Loading..."}
           </p>
           <FaRegCopy
+
+
+          
             onClick={() => copyToClipboard(upiData)}
             style={{
               cursor: "pointer",
               fontSize: "1.5rem",
               color: "#fff",
-            }}
-          />
-        </div>
+            }} */}
+          {/* /> */}
+        {/* </div> */}
         <h5
           style={{
             marginTop: "10px",
@@ -133,9 +136,9 @@ export default function PaymentStep({
         >
           For payment issues, contact: {no}
         </h5>
-      </div> */}
+      </div>
 
-      {/* <div
+      <div
         style={{
           display: "flex",
           justifyContent: "center",
@@ -151,7 +154,7 @@ export default function PaymentStep({
             border: "1px solid #ccc",
           }}
         >
-          <img
+          {/* <img
             src={QR}
             alt="QR Code"
             style={{
@@ -159,13 +162,13 @@ export default function PaymentStep({
               maxWidth: "100%",
               borderRadius: "10px",
             }}
-          />
+          /> */}
         </div>
-      </div> */}
+      </div>
 
 
       {/*UNCOMMENT THE BELOW CODE DURING DYNAMIC ROUND*/}
-
+{/* 
       <div
         style={{
           marginTop: "30px",
@@ -209,7 +212,7 @@ export default function PaymentStep({
             payment process.
           </p>
         </div>
-      </div>
+      </div> */}
       {/* TILL HERE*/}
       
     </div>

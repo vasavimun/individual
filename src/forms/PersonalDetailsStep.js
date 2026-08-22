@@ -1,8 +1,5 @@
 import React from "react";
 import "./form.css";
-import { useEffect } from "react";
-
-
 
 export default function PersonalDetailsStep({
   name,
@@ -31,35 +28,7 @@ export default function PersonalDetailsStep({
   setMunExperienceDetails,
   instituteName,
   setInstituteName,
-  recipient,
-  upiData,
-  setUpiData,
-  setRecipient,
-  
 }) {
- 
-  useEffect(() => { // eslint-disable-next-line react-hooks/exhaustive-deps
-    const fetchUpiData = async () => {
-      try {
-        const response = await fetch("https://mun-dat.onrender.com/upi/available", {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-          },
-        });
-  
-        const data = await response.json();
-        setUpiData(data.upiData);  // Set UPI ID from the response
-        setRecipient(data.recipient);  // Set recipient name from the response
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-  
-    fetchUpiData();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // Dependency array remains empty
-  
   return (
     <div>
       <input
@@ -177,7 +146,7 @@ export default function PersonalDetailsStep({
             <option value="MECHANICAL">MECHANICAL</option>
             <option value="IT">IT</option>
           </select>
-          
+
           <input
             type="text"
             placeholder="Lab Batch (1 or 2) if any"
