@@ -1,5 +1,5 @@
 import React from "react";
-import { FaRegCopy } from "react-icons/fa";
+// import { FaRegCopy } from "react-icons/fa";
 
 // import qrCode1 from "./AnanyaQR.png";
 //import qrCode2 from "./MansiQR.png";
@@ -16,11 +16,11 @@ export default function PaymentStep({
   // upiData,
 }) {
 
-  const copyToClipboard = (text) => {
-    navigator.clipboard.writeText(text).then(() => {
-      alert("UPI ID copied to clipboard!");
-    });
-  };
+  // const copyToClipboard = (text) => {
+  //   navigator.clipboard.writeText(text).then(() => {
+  //     alert("UPI ID copied to clipboard!");
+  //   });
+  // };
   const no = isVasavi ? "8897327157" : "8125192190";
 
   return (
@@ -117,7 +117,7 @@ export default function PaymentStep({
           <FaRegCopy
 
 
-          
+
             onClick={() => copyToClipboard(upiData)}
             style={{
               cursor: "pointer",
