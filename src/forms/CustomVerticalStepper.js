@@ -329,6 +329,8 @@ export default function CustomVerticalStepper() {
 
       console.log("Submitting form data:", formData);
 
+
+      //SERVER CHANGE
       fetch("https://mun-dat-gilt.vercel.app/register", {
         method: "POST",
         headers: {

@@ -1,12 +1,13 @@
 import React from "react";
 import { FaBookOpen } from "react-icons/fa";
-const committees = ["UNGA-DISEC", "AIPPM", "UNHRC", "NATO", "IP"];
+const committees = ["UNGA-DISEC", "JSP", "UNCSW", "CCC", "INTERPOL", "IP"];
 const ipRoles = [
   "Photographer",
   "Reporter - UNGA-DISEC",
-  "Reporter - AIPPM",
-  "Reporter - UNHRC",
-  "Reporter - NATO",
+  "Reporter - JSP",
+  "Reporter - UNCSW",
+  "Reporter - INTERPOL",
+  "Reporter - CCC",
 ];
 
 export default function PreferencesStep({

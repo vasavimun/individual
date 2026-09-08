@@ -1,9 +1,15 @@
-import React from "react";
-// import { FaRegCopy } from "react-icons/fa";
+import React, { useState } from "react";
+import { FaRegCopy, FaCheck } from "react-icons/fa";
 
 // import qrCode1 from "./AnanyaQR.png";
-//import qrCode2 from "./MansiQR.png";
+// import qrCode2 from "./MansiQR.png";
 
+const upi_list = [
+  { id: "9848220032@cnrb", contact: "9848220032" },
+  { id: "7032909499-2@ybl", contact: "7032909499" },
+  { id: "devarakondanandini3226@oksbi", contact: "8897327157" },
+  { id: "sirisatya18@ibl", contact: "8125192190" },
+];
 
 export default function PaymentStep({
   isVasavi,
@@ -15,23 +21,27 @@ export default function PaymentStep({
   setUtrNumber,
   // upiData,
 }) {
+  const [copied, setCopied] = useState(false);
 
-  // const copyToClipboard = (text) => {
-  //   navigator.clipboard.writeText(text).then(() => {
-  //     alert("UPI ID copied to clipboard!");
-  //   });
-  // };
+  const fee = isVasavi ? 1200 : 1600;
+  const currentDayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % upi_list.length;
+  const currUPI = upi_list[currentDayIndex];
   const no = isVasavi ? "8897327157" : "8125192190";
+
+  const copyToClipboard = (text) => {
+    navigator.clipboard.writeText(text).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    });
+  };
 
   return (
     <div>
-      <h2>
-        Registration fee: Rs. 1,700
-      </h2>
+      <h2>Registration fee: ₹{fee.toLocaleString("en-IN")}</h2>
 
       <div className="hd">
         <label className="btn">
-            <h3>Payment</h3>
+          <h3>Payment</h3>
         </label>
         <input
           type="text"
@@ -39,6 +49,7 @@ export default function PaymentStep({
           placeholder="Enter Transaction ID"
           value={transactionId}
           onChange={(e) => setTransactionId(e.target.value)}
+          required
         />
         <input
           type="text"
@@ -46,6 +57,7 @@ export default function PaymentStep({
           placeholder="Payment Screenshot (Drive Link)"
           value={driveLink}
           onChange={(e) => setDriveLink(e.target.value)}
+          required
         />
         <p
           style={{
@@ -57,8 +69,6 @@ export default function PaymentStep({
           Ensure access is not restricted
         </p>
       </div>
-
-
 
       <div style={{ marginTop: "20px" }}>
         <input
@@ -76,20 +86,23 @@ export default function PaymentStep({
           }}
         />
         <p
-        style={{
-          marginTop: "5px",
-          fontSize: "0.9rem",
-          color: "#fff",
-        }}
-        >leave empty if not available or invalid</p>
+          style={{
+            marginTop: "5px",
+            fontSize: "0.9rem",
+            color: "#fff",
+          }}
+        >
+          leave empty if not available or invalid
+        </p>
       </div>
 
+      {/* Daily Rotating UPI Section */}
       <div
         style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          marginTop: "15px",
+          marginTop: "20px",
           flexDirection: "column",
         }}
       >
@@ -115,22 +128,59 @@ export default function PaymentStep({
           {upiData ? upiData : "Loading..."}
           </p>
           <FaRegCopy
-
-
-
             onClick={() => copyToClipboard(upiData)}
             style={{
               cursor: "pointer",
               fontSize: "1.5rem",
               color: "#fff",
-            }} */}
-          {/* /> */}
+            }}
+          /> */}
         {/* </div> */}
+
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            gap: "10px",
+            background: "#111",
+            padding: "8px 16px",
+            borderRadius: "8px",
+            border: "1px solid #333",
+          }}
+        >
+          <span
+            style={{
+              color: "#fff",
+              fontSize: "1rem",
+              fontWeight: "bold",
+              userSelect: "all",
+            }}
+          >
+            {currUPI.id}
+          </span>
+          <button
+            type="button"
+            onClick={() => copyToClipboard(currUPI.id)}
+            style={{
+              background: "transparent",
+              border: "none",
+              color: copied ? "#4BB543" : "#fff",
+              cursor: "pointer",
+              display: "flex",
+              alignItems: "center",
+              fontSize: "1.2rem",
+            }}
+            title="Copy UPI ID"
+          >
+            {copied ? <FaCheck /> : <FaRegCopy />}
+          </button>
+        </div>
+
         <h5
           style={{
-            marginTop: "10px",
+            marginTop: "15px",
             textAlign: "center",
-            fontSize: "1.2rem",
+            fontSize: "1rem",
             color: "#fff",
           }}
         >
@@ -166,9 +216,8 @@ export default function PaymentStep({
         </div>
       </div>
 
-
-      {/*UNCOMMENT THE BELOW CODE DURING DYNAMIC ROUND*/}
-{/* 
+      {/* UNCOMMENT THE BELOW CODE DURING DYNAMIC ROUND */}
+      {/* 
       <div
         style={{
           marginTop: "30px",
@@ -212,9 +261,9 @@ export default function PaymentStep({
             payment process.
           </p>
         </div>
-      </div> */}
-      {/* TILL HERE*/}
-      
+      </div>
+      */}
+      {/* TILL HERE */}
     </div>
   );
 }
