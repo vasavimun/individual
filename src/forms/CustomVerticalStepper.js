@@ -34,6 +34,7 @@ export default function CustomVerticalStepper() {
   const [instituteName, setInstituteName] = useState("");
   const [munExperienceDetails, setMunExperienceDetails] = useState("");
   const [utrNumber, setUtrNumber] = useState("");
+  const [usedUpiId, setUsedUpiId] = useState("");
 
   const [labBatch, setLabBatch] = useState("");
   const [eca, setEca] = useState("");
@@ -184,6 +185,7 @@ export default function CustomVerticalStepper() {
           setDriveLink={setDriveLink}
           utrNumber={utrNumber}
           setUtrNumber={setUtrNumber}
+          setUsedUpiId={setUsedUpiId}
         />
       ),
     },
@@ -324,7 +326,9 @@ export default function CustomVerticalStepper() {
         transactionId,
         driveLink,
         utrNumber,
-        isVasavi
+        isVasavi,
+        amount:fee,
+        usedUpiId,
       };
 
       console.log("Submitting form data:", formData);
@@ -384,6 +388,7 @@ export default function CustomVerticalStepper() {
     setDriveLink("");
     setActiveStep(0);
     setUtrNumber("");
+    setUsedUpiId("");
   };
 
   return (

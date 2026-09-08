@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaRegCopy, FaCheck } from "react-icons/fa";
 
 // import qrCode1 from "./AnanyaQR.png";
@@ -19,14 +19,42 @@ export default function PaymentStep({
   setDriveLink,
   utrNumber,
   setUtrNumber,
-  // upiData,
+  setUsedUpiId,
 }) {
   const [copied, setCopied] = useState(false);
 
+  // Fallback if DB is empty or endpoint fails
+  const fallbackIndex =
+    Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % upi_list.length;
+  const fallbackUpi = upi_list[fallbackIndex];
+
+  const [upiDetails, setUpiDetails] = useState({
+    upiData: fallbackUpi.id,
+    recipient: fallbackUpi.contact,
+  });
+
   const fee = isVasavi ? 1200 : 1600;
-  const currentDayIndex = Math.floor(Date.now() / (1000 * 60 * 60 * 24)) % upi_list.length;
-  const currUPI = upi_list[currentDayIndex];
-  const no = isVasavi ? "8897327157" : "8125192190";
+
+  useEffect(() => {
+    // Notify parent of default in case user submits without waiting
+    if (setUsedUpiId) setUsedUpiId(fallbackUpi.id);
+
+    fetch("https://mun-dat-gilt.vercel.app/upi/available")
+      .then((res) => {
+        if (!res.ok) throw new Error("Network response was not ok");
+        return res.json();
+      })
+      .then((data) => {
+        if (data && data.upiData) {
+          setUpiDetails({
+            upiData: data.upiData,
+            recipient: data.recipient || (isVasavi ? "8897327157" : "8125192190"),
+          });
+          if (setUsedUpiId) setUsedUpiId(data.upiData);
+        }
+      })
+      .catch((err) => console.error("Error fetching UPI ID, using fallback:", err));
+  }, [isVasavi, setUsedUpiId, fallbackUpi.id]);
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text).then(() => {
@@ -96,7 +124,7 @@ export default function PaymentStep({
         </p>
       </div>
 
-      {/* Daily Rotating UPI Section */}
+      {/* Rotating UPI Section */}
       <div
         style={{
           display: "flex",
@@ -106,37 +134,6 @@ export default function PaymentStep({
           flexDirection: "column",
         }}
       >
-        {/* <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-          }}
-        > */}
-          {/* <p
-            style={{
-              padding: "8px",
-              borderRadius: "8px",
-              marginRight: "10px",
-              backgroundColor: "black",
-              color: "white",
-              fontSize: "1rem",
-              fontWeight: "bold",
-              display: "inline-block",
-              whiteSpace: "nowrap",
-            }}
-          >
-          {upiData ? upiData : "Loading..."}
-          </p>
-          <FaRegCopy
-            onClick={() => copyToClipboard(upiData)}
-            style={{
-              cursor: "pointer",
-              fontSize: "1.5rem",
-              color: "#fff",
-            }}
-          /> */}
-        {/* </div> */}
-
         <div
           style={{
             display: "flex",
@@ -156,11 +153,11 @@ export default function PaymentStep({
               userSelect: "all",
             }}
           >
-            {currUPI.id}
+            {upiDetails.upiData}
           </span>
           <button
             type="button"
-            onClick={() => copyToClipboard(currUPI.id)}
+            onClick={() => copyToClipboard(upiDetails.upiData)}
             style={{
               background: "transparent",
               border: "none",
@@ -184,7 +181,7 @@ export default function PaymentStep({
             color: "#fff",
           }}
         >
-          For payment issues, contact: {no}
+          For payment issues, contact: {upiDetails.recipient}
         </h5>
       </div>
 
@@ -267,4 +264,3 @@ export default function PaymentStep({
     </div>
   );
 }
-// dep issue clear
