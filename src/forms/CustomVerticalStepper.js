@@ -297,7 +297,6 @@ export default function CustomVerticalStepper() {
   const handleSubmit = () => {
     if (validateStep()) {
       setLoading(true);
-
       const formData = {
         name,
         phone,
@@ -327,7 +326,6 @@ export default function CustomVerticalStepper() {
         driveLink,
         utrNumber,
         isVasavi,
-        amount:fee,
         usedUpiId,
       };
 
