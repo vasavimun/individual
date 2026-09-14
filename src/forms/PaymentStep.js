@@ -34,6 +34,7 @@ export default function PaymentStep({
   });
 
   const fee = isVasavi ? 1200 : 1600;
+  const num = "8125192190"
 
   useEffect(() => {
     // Notify parent of default in case user submits without waiting
@@ -181,7 +182,7 @@ export default function PaymentStep({
             color: "#fff",
           }}
         >
-          For payment issues, contact: {upiDetails.recipient}
+          For payment issues, contact: {num}
         </h5>
       </div>
 
