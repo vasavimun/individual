@@ -38,6 +38,7 @@ export default function CustomVerticalStepper() {
 
   const [labBatch, setLabBatch] = useState("");
   const [eca, setEca] = useState("");
+  const [termsAccepted, setTermsAccepted] = useState(false);
 
   const validatePreferences = () => {
     const errors = [];
@@ -186,6 +187,8 @@ export default function CustomVerticalStepper() {
           utrNumber={utrNumber}
           setUtrNumber={setUtrNumber}
           setUsedUpiId={setUsedUpiId}
+          termsAccepted={termsAccepted}
+          setTermsAccepted={setTermsAccepted}
         />
       ),
     },
@@ -269,6 +272,11 @@ export default function CustomVerticalStepper() {
     } else if (activeStep === 1) {
       const preferencesValid = validatePreferences();
       if (!preferencesValid) return false;
+    } else if (activeStep === 2){
+      if (!termsAccepted){
+        alert("Please read and accept the Terms and Conditions before submitting");
+        return false;
+      }
     }
 
     return true;
@@ -387,6 +395,7 @@ export default function CustomVerticalStepper() {
     setActiveStep(0);
     setUtrNumber("");
     setUsedUpiId("");
+    setTermsAccepted(false);
   };
 
   return (
@@ -415,7 +424,12 @@ export default function CustomVerticalStepper() {
                 Next
               </button>
             ) : (
-              <button className="btn" onClick={handleSubmit}>
+              <button className="btn" onClick={handleSubmit} disabled={!termsAccepted} 
+              style={{
+                opacity: termsAccepted ? 1:0.5,
+                cursor: termsAccepted ? "pointer": "not-allowed",
+                backgroundColor: termsAccepted ? "" : "#ccc" 
+              }}>
                 Submit
               </button>
             )}
