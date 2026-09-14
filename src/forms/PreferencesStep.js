@@ -36,12 +36,14 @@ export default function PreferencesStep({
   ipRole3,
   setIpRole3,
 }) {
+  const ipCount1 = preference1 === "IP" ? 1:0;
   const filteredCommittees2 = committees.filter(
-    (c) => c !== preference1 || c === "IP"
+    (c) => c !== preference1 || (c==="IP" && ipCount1 < 2)
   );
 
+  const ipCount2 = ipCount1 + (preference2 === "IP" ? 1 : 0);
   const filteredCommittees3 = filteredCommittees2.filter(
-    (c) => c !== preference2 || c === "IP"
+    (c) => c !== preference2 || (c === "IP" && ipCount2 < 2)
   );
 
   const filteredIpRoles2 = ipRoles.filter((role) => role !== ipRole1);
