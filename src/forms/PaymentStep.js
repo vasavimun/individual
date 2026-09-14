@@ -185,33 +185,33 @@ export default function PaymentStep({
         </h5>
       </div>
 
-      <div
+      {/* <div
         style={{
           display: "flex",
           justifyContent: "center",
           marginTop: "20px",
           gap: "20px",
         }}
-      >
-        <div
+      > */}
+        {/* <div
           style={{
             padding: "10px",
             borderRadius: "15px",
             overflow: "hidden",
             border: "1px solid #ccc",
           }}
-        >
-      //     {/* <img
-      //       src={QR}
-      //       alt="QR Code"
-      //       style={{
-      //         height: "auto",
-      //         maxWidth: "100%",
-      //         borderRadius: "10px",
-      //       }}
-      //     /> */}
-        </div>
-      </div>
+        > */}
+           {/* <img
+             src={QR}
+             alt="QR Code"
+             style={{
+               height: "auto",
+               maxWidth: "100%",
+               borderRadius: "10px",
+             }}
+           /> */}
+        {/* </div>
+      </div> */}
 
       {/* UNCOMMENT THE BELOW CODE DURING DYNAMIC ROUND */}
       {/* 
